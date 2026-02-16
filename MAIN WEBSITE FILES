@@ -1,0 +1,178 @@
+beauty-band-website
+ ┣ app
+ ┃ ┗ page.tsx import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ShoppingBag, Sparkles, Truck, MessageCircle } from "lucide-react";
+
+export default function BeautyBandWebsite() {
+  return (
+    <div className="min-h-screen bg-[#faf7f8] text-[#2b2628]">
+      {/* Header */}
+      <header className="flex justify-between items-center px-10 py-6 bg-white border-b border-[#f1e8ea]">
+        <h1 className="text-2xl font-semibold tracking-[0.25em] text-[#2b2628]">
+          BEAUTY BAND
+        </h1>
+        <nav className="hidden md:flex gap-8 text-sm font-medium text-neutral-600">
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <Button className="rounded-2xl bg-[#2b2628] hover:bg-[#3a3437] text-[#fffafb]">
+          Cart
+        </Button>
+      </header>
+
+      {/* Hero Section */}
+      <section className="px-8 py-24 text-center bg-[#faf7f8]">
+        <h2 className="text-5xl font-light mb-6 tracking-wide text-[#2b2628]">
+          Curated Beauty for Every Skin
+        </h2>
+        <p className="max-w-xl mx-auto text-neutral-500 mb-10 text-lg">
+          Premium skincare products and beauty accessories curated for every skin type in Ghana.
+        </p>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <Button className="rounded-2xl px-10 py-6 text-base bg-[#2b2628] hover:bg-[#3a3437] text-[#fffafb]">
+            Shop Collection
+          </Button>
+          <Button
+            variant="outline"
+            className="rounded-2xl px-10 py-6 text-base flex gap-2 items-center border-[#e8dfe2] text-neutral-700 hover:bg-[#f3ecee]"
+          >
+            <MessageCircle size={18} /> Chat on WhatsApp
+          </Button>
+        </div>
+      </section>
+
+      {/* Product Section */}
+      <section id="shop" className="px-10 py-20">
+        <h2 className="text-3xl font-light mb-12 text-center text-[#2b2628]">
+          Featured Products
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          {[1, 2, 3, 4, 5, 6].map((product) => (
+            <Card
+              key={product}
+              className="rounded-2xl border border-[#f1e8ea] hover:shadow-md transition bg-white"
+            >
+              <div className="h-64 bg-[#faf7f8] rounded-t-2xl" />
+              <CardContent className="p-6">
+                <h3 className="font-medium mb-2 text-neutral-800">
+                  Luxury Skincare Product
+                </h3>
+                <p className="text-sm text-neutral-500 mb-4">
+                  Hydrating and nourishing formula for radiant skin.
+                </p>
+                <p className="font-semibold mb-4 text-[#2b2628]">GHS 250</p>
+                <Button className="w-full rounded-xl bg-[#2b2628] hover:bg-[#3a3437] text-[#fffafb]">
+                  Add to Cart
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 py-20 bg-[#f6f0f2]">
+        <Card className="rounded-2xl border border-[#efe5e8] bg-white">
+          <CardContent className="p-8 text-center">
+            <Sparkles className="mx-auto mb-4 text-neutral-700" />
+            <h3 className="font-medium mb-2 text-neutral-800">
+              Curated Premium Products
+            </h3>
+            <p className="text-sm text-neutral-500">
+              Carefully selected luxury skincare and beauty accessories.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-2xl border border-[#efe5e8] bg-white">
+          <CardContent className="p-8 text-center">
+            <Truck className="mx-auto mb-4 text-neutral-700" />
+            <h3 className="font-medium mb-2 text-neutral-800">
+              Nationwide Delivery
+            </h3>
+            <p className="text-sm text-neutral-500">
+              Fast, reliable delivery across Ghana.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-2xl border border-[#efe5e8] bg-white">
+          <CardContent className="p-8 text-center">
+            <ShoppingBag className="mx-auto mb-4 text-neutral-700" />
+            <h3 className="font-medium mb-2 text-neutral-800">All Skin Types</h3>
+            <p className="text-sm text-neutral-500">
+              Inclusive beauty solutions for every skin need.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* WhatsApp CTA Banner */}
+      <section className="px-10 py-20 text-center bg-[#2b2628] text-[#fffafb]">
+        <h2 className="text-3xl font-light mb-6">Need Skincare Advice?</h2>
+        <p className="mb-8 text-neutral-300">
+          Chat with our beauty consultants directly on WhatsApp.
+        </p>
+        <Button className="rounded-2xl px-10 py-6 text-base bg-white text-[#2b2628] hover:bg-neutral-200 flex items-center gap-2">
+          <MessageCircle size={18} /> Start WhatsApp Chat
+        </Button>
+      </section>
+
+      {/* About */}
+      <section id="about" className="px-10 py-20">
+        <h2 className="text-3xl font-light mb-6 text-[#2b2628]">
+          About Beauty Band
+        </h2>
+        <p className="max-w-2xl text-neutral-500 leading-relaxed">
+          Beauty Band is a luxury skincare and beauty accessories brand dedicated to quality, authenticity, and inclusive beauty. Our products are curated to meet the skincare needs of individuals living in Ghana's climate and lifestyle.
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer className="px-10 py-10 text-sm text-neutral-500 border-t border-[#f1e8ea]">
+        © {new Date().getFullYear()} Beauty Band. All rights reserved.
+      </footer>
+    </div>
+  );
+}
+
+ ┣ package.json {
+  "name": "beauty-band",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "lucide-react": "^0.263.1",
+    "next": "14.0.0",
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
+
+ ┣ tailwind.config.js module.exports = {
+  content: ["./app/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+ ┣ postcss.config.js module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+ ┗ next.config.js /** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+module.exports = nextConfig;
+
