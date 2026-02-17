@@ -1,6 +1,7 @@
 beauty-band-website
  ┣ app
- ┃ ┗ page.tsx import { Card, CardContent } from "@/components/ui/card";
+ │  ┗ page.tsx 
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag, Sparkles, Truck, MessageCircle } from "lucide-react";
 
@@ -48,13 +49,9 @@ export default function BeautyBandWebsite() {
         <h2 className="text-3xl font-light mb-12 text-center text-[#2b2628]">
           Featured Products
         </h2>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {[1, 2, 3, 4, 5, 6].map((product) => (
-            <Card
-              key={product}
-              className="rounded-2xl border border-[#f1e8ea] hover:shadow-md transition bg-white"
-            >
+            <Card key={product} className="rounded-2xl border border-[#f1e8ea] hover:shadow-md transition bg-white">
               <div className="h-64 bg-[#faf7f8] rounded-t-2xl" />
               <CardContent className="p-6">
                 <h3 className="font-medium mb-2 text-neutral-800">
@@ -78,9 +75,7 @@ export default function BeautyBandWebsite() {
         <Card className="rounded-2xl border border-[#efe5e8] bg-white">
           <CardContent className="p-8 text-center">
             <Sparkles className="mx-auto mb-4 text-neutral-700" />
-            <h3 className="font-medium mb-2 text-neutral-800">
-              Curated Premium Products
-            </h3>
+            <h3 className="font-medium mb-2 text-neutral-800">Curated Premium Products</h3>
             <p className="text-sm text-neutral-500">
               Carefully selected luxury skincare and beauty accessories.
             </p>
@@ -90,12 +85,8 @@ export default function BeautyBandWebsite() {
         <Card className="rounded-2xl border border-[#efe5e8] bg-white">
           <CardContent className="p-8 text-center">
             <Truck className="mx-auto mb-4 text-neutral-700" />
-            <h3 className="font-medium mb-2 text-neutral-800">
-              Nationwide Delivery
-            </h3>
-            <p className="text-sm text-neutral-500">
-              Fast, reliable delivery across Ghana.
-            </p>
+            <h3 className="font-medium mb-2 text-neutral-800">Nationwide Delivery</h3>
+            <p className="text-sm text-neutral-500">Fast, reliable delivery across Ghana.</p>
           </CardContent>
         </Card>
 
@@ -103,9 +94,7 @@ export default function BeautyBandWebsite() {
           <CardContent className="p-8 text-center">
             <ShoppingBag className="mx-auto mb-4 text-neutral-700" />
             <h3 className="font-medium mb-2 text-neutral-800">All Skin Types</h3>
-            <p className="text-sm text-neutral-500">
-              Inclusive beauty solutions for every skin need.
-            </p>
+            <p className="text-sm text-neutral-500">Inclusive beauty solutions for every skin need.</p>
           </CardContent>
         </Card>
       </section>
@@ -123,9 +112,7 @@ export default function BeautyBandWebsite() {
 
       {/* About */}
       <section id="about" className="px-10 py-20">
-        <h2 className="text-3xl font-light mb-6 text-[#2b2628]">
-          About Beauty Band
-        </h2>
+        <h2 className="text-3xl font-light mb-6 text-[#2b2628]">About Beauty Band</h2>
         <p className="max-w-2xl text-neutral-500 leading-relaxed">
           Beauty Band is a luxury skincare and beauty accessories brand dedicated to quality, authenticity, and inclusive beauty. Our products are curated to meet the skincare needs of individuals living in Ghana's climate and lifestyle.
         </p>
@@ -139,7 +126,38 @@ export default function BeautyBandWebsite() {
   );
 }
 
- ┣ package.json {
+ ┣ components
+ │  ┗ ui
+ │     ┣ card.tsx 
+import React from "react";
+
+export function Card({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <div className={`shadow-sm rounded-xl ${className}`}>{children}</div>;
+}
+
+export function CardContent({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <div className={className}>{children}</div>;
+}
+
+ │     ┗ button.tsx
+import React from "react";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "outline";
+}
+
+export function Button({ children, className, variant, ...props }: ButtonProps) {
+  const base = "px-4 py-2 rounded-lg font-medium";
+  const style = variant === "outline" ? "border border-gray-300 bg-white" : "bg-[#2b2628] text-white";
+  return (
+    <button className={`${base} ${style} ${className}`} {...props}>
+      {children}
+    </button>
+  );
+}
+
+ ┣ package.json 
+{
   "name": "beauty-band",
   "version": "1.0.0",
   "private": true,
@@ -156,20 +174,24 @@ export default function BeautyBandWebsite() {
   }
 }
 
- ┣ tailwind.config.js module.exports = {
+ ┣ tailwind.config.js 
+module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
-  theme: { extend: {}, },
+  theme: { extend: {} },
   plugins: [],
 };
 
- ┣ postcss.config.js module.exports = {
+ ┣ postcss.config.js 
+module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
   },
 };
 
- ┗ next.config.js /** @type {import('next').NextConfig} */
+ ┗ next.config.js 
+/** @type {import('next').NextConfig} */
 const nextConfig = {};
 module.exports = nextConfig;
+
 
