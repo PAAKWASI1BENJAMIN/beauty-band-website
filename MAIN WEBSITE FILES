@@ -158,9 +158,7 @@ export default function BeautyBandWebsite() {
 
  ┣ tailwind.config.js module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
+  theme: { extend: {}, },
   plugins: [],
 };
 
@@ -173,6 +171,5 @@ export default function BeautyBandWebsite() {
 
  ┗ next.config.js /** @type {import('next').NextConfig} */
 const nextConfig = {};
-
 module.exports = nextConfig;
 
